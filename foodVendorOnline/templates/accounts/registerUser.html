@@ -10,7 +10,7 @@
                         <div class="tab-content">
                             <div id="signup_box" class="tab-pane in active">
                                 <div class="scetion-title">
-                                    <h2>Sign Up</h2>
+                                    <h2>Sign Up Customer</h2>
                                 </div>
                                 <div class="input-info">
                                     <div class="row">
@@ -45,17 +45,17 @@
                                                 {{ form.confirm_password }}
                                             </div>
                                             {% if form.errors %}
-    <ul class="form-errors" style="color:red;">
-        {% for field in form %}
-            {% for error in field.errors %}
-                <li>{{ error }}</li>
-            {% endfor %}
-        {% endfor %}
-        {% for error in form.non_field_errors %}
-            <li>{{ error }}</li>
-        {% endfor %}
-    </ul>
-{% endif %}
+                                                <ul class="form-errors" style="color:red;">
+                                                    {% for field in form %}
+                                                        {% for error in field.errors %}
+                                                            <li>{{ error }}</li>
+                                                        {% endfor %}
+                                                    {% endfor %}
+                                                    {% for error in form.non_field_errors %}
+                                                        <li>{{ error }}</li>
+                                                    {% endfor %}
+                                                </ul>
+                                            {% endif %}
 
                                             <input type="submit" class="submit-button" value="Create Account">
                                        

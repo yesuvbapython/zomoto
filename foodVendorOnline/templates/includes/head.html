@@ -64,11 +64,15 @@
 						</div>
 						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 							<div class="login-option">
-								<a class="cs-color cs-popup-joinus-btn login-popup" href="{% url 'registerUser' %}">User Register</a>
+								<a class="cs-color cs-popup-joinus-btn login-popup" href="{% url 'registerUser' %}">User</a>
+								<a class="cs-color cs-popup-joinus-btn login-popup" href="{% url 'registerVendor' %}">Vendor</a>
+                                {% if user.is_authenticated %}
+    <a class="cs-color cs-popup-joinus-btn login-popup" href="{% url 'logout' %}">Logout</a>
+{% else %}
+    <a class="cs-color cs-popup-joinus-btn login-popup" href="{% url 'login' %}">Login</a>
+{% endif %}
 
-                                    <a class="get-start-btn" href="register-restaurant.html">
-									Register
-									Restaurant </a>
+								<a class="get-start-btn" href="register-restaurant.html">Register Restaurant </a>
 							</div>
 						</div>
 					</div>
