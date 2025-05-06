@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import registerUser,registerVendor,login,logout,cusDashboard,venDashboard,Account
+from .views import registerUser,registerVendor,login,logout,cusDashboard,venDashboard,Account,activate
 
 urlpatterns = [
     path('registerUser/',registerUser,name="registerUser"),
@@ -9,4 +9,5 @@ urlpatterns = [
     path('cusDashboard/',cusDashboard,name="cusDashboard"),
     path('venDashboard/',venDashboard,name="venDashboard"),
     path('Account/',Account,name="Account"),
+    path('activate/<uidb64>/<token>',activate,name="activate"),
 ]

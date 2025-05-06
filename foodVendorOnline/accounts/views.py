@@ -6,7 +6,7 @@ from vendor.forms import customeVendorForm
 from django.contrib import auth
 from .utils import dashboard
 from django.contrib.auth.decorators import login_required,user_passes_test
-
+from .utils import send_verification_mail_to_activate
 from django.core.exceptions import PermissionDenied
 
 def customer_role(user):
@@ -50,7 +50,7 @@ def registerVendor(request):
             user_profile = UserProfile.objects.get(user=user)
             vendor.user_profile = user_profile
             vendor.save()
-
+            send_verification_mail_to_activate(request,vendor)                            
             messages.success(request, "Vendor has been created successfully.")
             return redirect('registerVendor')
         else:
@@ -88,6 +88,7 @@ def registerUser(request):
             )
             user.role = User.CUSTOMER
             user.save()
+            send_verification_mail_to_activate(request,user)
             messages.success(request, "Registered successfully.")
             return redirect('registerUser')
         else:
@@ -140,3 +141,6 @@ def cusDashboard(request):
 @user_passes_test(vendore_role)
 def venDashboard(request):
     return render(request, 'accounts/venDashboard.html')
+
+def activate(request):
+    pass
